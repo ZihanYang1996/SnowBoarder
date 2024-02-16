@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 1274415590}
   - component: {fileID: 1274415593}
   - component: {fileID: 1274415594}
+  - component: {fileID: 1274415595}
   m_Layer: 0
   m_Name: Barry
   m_TagString: Untagged
@@ -555,7 +556,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 10
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -655,6 +656,19 @@ CircleCollider2D:
   m_Offset: {x: 1.6, y: 0.25}
   serializedVersion: 2
   m_Radius: 0.33
+--- !u!114 &1274415595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274415589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38d157f1f53670429c3d75282eda819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torqueAmount: 1
 --- !u!1 &1561482729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,9 +1376,9 @@ SurfaceEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Speed: 10
+  m_Speed: 20
   m_SpeedVariation: 0
-  m_ForceScale: 0.1
+  m_ForceScale: 1
   m_UseContactForce: 0
   m_UseFriction: 1
   m_UseBounce: 1
