@@ -6,11 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetector : MonoBehaviour
 {
+    [SerializeField] float reloadTime = 2f;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Ground")
         {
-            SceneManager.LoadScene(0);
+            StartCoroutine(ReloadScene());
         }
+    }
+
+    IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(reloadTime);
+        SceneManager.LoadScene(0);
     }
 }
