@@ -7351,6 +7351,7 @@ MonoBehaviour:
   torqueAmount: 1
   moveSpeed: 20
   boostSpeed: 100
+  levelSprite: {fileID: 1561482729}
 --- !u!114 &1274415596
 MonoBehaviour:
   m_ObjectHideFlags: 0
