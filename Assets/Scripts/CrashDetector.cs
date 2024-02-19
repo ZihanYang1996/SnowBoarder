@@ -10,6 +10,7 @@ public class CrashDetector : MonoBehaviour
     [SerializeField] ParticleSystem crashEffect;
     [SerializeField] AudioClip crashSFX;
     PlayerController playerController;
+    bool playerAlive = true;
 
     void Start()
     {
@@ -18,8 +19,9 @@ public class CrashDetector : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Ground")
+        if (other.tag == "Ground" && playerAlive)
         {
+            playerAlive = false;
             playerController.DisableControls();
             crashEffect.Play();  // Doesn't matter if it's brefore or after the StartCoroutine
             GetComponent<AudioSource>().PlayOneShot(crashSFX);
