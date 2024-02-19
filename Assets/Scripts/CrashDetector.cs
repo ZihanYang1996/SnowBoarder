@@ -8,11 +8,13 @@ public class CrashDetector : MonoBehaviour
 {
     [SerializeField] float reloadTime = 2f;
     [SerializeField] ParticleSystem crashEffect;
+    [SerializeField] AudioClip crashSFX;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Ground")
         {
             crashEffect.Play();  // Doesn't matter if it's brefore or after the StartCoroutine
+            GetComponent<AudioSource>().PlayOneShot(crashSFX);
             StartCoroutine(ReloadScene());
         }
     }
