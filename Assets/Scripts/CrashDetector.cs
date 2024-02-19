@@ -9,10 +9,18 @@ public class CrashDetector : MonoBehaviour
     [SerializeField] float reloadTime = 2f;
     [SerializeField] ParticleSystem crashEffect;
     [SerializeField] AudioClip crashSFX;
+    PlayerController playerController;
+
+    void Start()
+    {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>(); //Approach 1
+        // playerController = FindObjectOfType<PlayerController>(); //Approach 2
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Ground")
         {
+            playerController.DisableControls();
             crashEffect.Play();  // Doesn't matter if it's brefore or after the StartCoroutine
             GetComponent<AudioSource>().PlayOneShot(crashSFX);
             StartCoroutine(ReloadScene());

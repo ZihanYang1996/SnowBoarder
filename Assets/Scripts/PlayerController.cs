@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject levelSprite;  // Approach 2: Assign the gameobject with SurfaceEffector2D in the Inspector
 
 
+    bool canMove = true;
     Rigidbody2D rb2d;
     SurfaceEffector2D surfaceEffector2D;  // Approach 2
     // SurfaceEffector2D surfaceEffector2D; // Approach 3: Use FindObjectOfType to get the SurfaceEffector2D
@@ -29,8 +30,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotatePlayer();
-        RespondToBoost();
+        if (canMove)
+        {
+            RotatePlayer();
+            RespondToBoost();
+        }
+
+    }
+
+    public void DisableControls()
+    {
+        canMove = false;
     }
 
     void RespondToBoost()
